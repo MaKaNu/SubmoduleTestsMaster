@@ -16,6 +16,10 @@ To include the submodule into the parent repo, click on the appearing green plus
 
 After including the submodule the paren Repo needs to commit the changes. The changes are already added to the HEAD.
 
+### Cloning a repo with submodules 
+
+After cloning a parent repo with submodules the Module folders are empty and the Programm asked to initialize the Submodules. If this is done the submodules are on the same commit as the origin.
+
 ### Update the Submodules from the parent repo
 
 If you change/add a file on a submodule Gitkraken show that changes are applied to the specific submodule but it is not possible to stage the changes at the moment. First you need to commit the changes in the submodule.
@@ -93,6 +97,35 @@ to register the included submodules to the parent repo and:
 $ git submodule update
 ```
 
-to fill the empty module folders, with the connected commit.
+to fill the empty module folders, with the connected commit. To do this while cloning in one single command run:
+
+```bash
+$ git clone --recurse-submodule https://github.com/url-to-parent-repo 
+```
+This will also update nested submodules. If the parent repo is already cloned the command:
+
+```bash
+git submodule update --init --recursive
+```
+will fix this issue.
+
+### Update the Submodules from the parent repo
+
+To check for new changes the command 
+```bash
+$ git status
+```
+will show that submodules are modified but the recommended command to add the changes will not work. Instead the changed code in the submodule needs to be commited first.
+
+```bash
+$ cd name-of-the-module
+$ git status
+$ git add <file>
+$ git commit -m "Changed File" -m "What was changed..."
+```
+With switching back to the parent repo the modified modules can be added and commited as usual.
+
+### Update the Submodules from their own repos
+
 
 ## Git Extensions
