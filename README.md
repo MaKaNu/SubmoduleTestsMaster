@@ -1,6 +1,6 @@
 # SubmoduleTestsMaster
 
-This Repository is for testing and documentation purposes. This paren repo will only include this README.md file and the submodules. The Submodules will include some pseudo-code to apply changes that could be commited.
+This Repository is for testing and documentation purposes. This parent repo will only include this README.md file and the submodules. The Submodules will include some pseudo-code to apply changes that could be commited.
 
 Furthermore this explanation will include introduction to handle submodule with the Git Commands, Git Extensions and Gitkraken.
 
@@ -39,3 +39,7 @@ When the changes are commited in the submodule and the view is reseted to the pa
 ### Update the Submodules from their own repos
 
 This workflow appears if, as example, the remote repo is controlled by another person. If the remote is changed the parent repo is still in sync with the submodule. Now if the module is opened the difference between local and remote repo will be visible. In this case the commit linked with the parent repo is tagged as HEAD. By double clicking the local master branch, the tag will be deleted an the local branch activated. Now it is possible to pull the changes from the remote master branch. By continuing as described above the changes will be applied to the parent repo.
+
+### Change to a specific commit
+
+With a opened submodule the wanted commit will be checked out by right clicking the specific commit and choose the option "Check out this commit". If the Commit is checked out correctly a tag "HEAD" for this commit will be created. After closing the submodule the parent repo is no longer in sync with the submodule and the changes for the Submodule needs to be added and commited, as descriped above.
