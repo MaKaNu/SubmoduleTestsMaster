@@ -1,6 +1,3 @@
 [submodule "Module_01"]
 	path = Module_01
 	url = https://github.com/MaKaNu/SubmoduleTestsModule_01.git
-[submodule "Module_02"]
-	path = Module_02
-	url = https://github.com/MaKaNu/SubmoduleTestsModule_02.git
