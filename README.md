@@ -8,7 +8,7 @@ Furthermore this explanation will include introduction to handle submodule with 
 
 This Section includes the Workflow for Gitkraken. Starting with the set up of the repo , continuing with updating the submodules and ending with setting up the repo for a special commit of the submodule.
 
-### Integrate the Submodules
+### Add the Submodules
 
 To include the submodule into the parent repo, click on the appearing green plus button next to "SUBMODULES". This will open a window with two entry fields for the remote-URL and the path to the submodule inside the parent repo. After entering the URL the path will automatically show the reponame of the module. This path can be changed to any path/name.
 
@@ -43,3 +43,45 @@ This workflow appears if, as example, the remote repo is controlled by another p
 ### Change to a specific commit
 
 With a opened submodule the wanted commit will be checked out by right clicking the specific commit and choose the option "Check out this commit". If the Commit is checked out correctly a tag "HEAD" for this commit will be created. After closing the submodule the parent repo is no longer in sync with the submodule and the changes for the Submodule needs to be added and commited, as descriped above.
+
+## Commandline
+
+This section explains the workflow of working with submodule on the commandline. 
+
+### Add the Submodules
+
+To clone the module repo we call
+
+```bash
+$ git submodule add https://github.com/url-to-module-repo 'name-of-the-module'
+```
+This will add the Module as a folder with the wanted name and a configures the .gitmodules file. Running
+
+```bash
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   .gitmodules
+        new file:   name-of-the-module
+```
+
+will provide this information. With
+```bash
+$ git diff --cached --submodule name-of-th-submodule
+Submodule name-of-th-submodule 00000000...abc123 (new submodule)
+```
+the programm provides the first 6 values of the commit, which will be added to the parent repo. As last step the new module needs to be commited:
+
+```bash
+git commit -am 'Add name-of-the-module as Submodule' -m 'Further information about the module'
+```
+
+### Cloning a repo with submodules
+
+
+
+## Git Extensions
