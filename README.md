@@ -82,6 +82,17 @@ git commit -am 'Add name-of-the-module as Submodule' -m 'Further information abo
 
 ### Cloning a repo with submodules
 
+By cloning a repo with submodules the modules the module folder and the entries in .gitmodules are available, but the folders are empty. To collect the data from the origin to commands are necessary:
 
+```bash
+$ git submodule init
+```
+to register the included submodules to the parent repo and:
+
+```bash
+$ git submodule update
+```
+
+to fill the empty module folders, with the connected commit.
 
 ## Git Extensions
