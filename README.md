@@ -129,12 +129,49 @@ With switching back to the parent repo the modified modules can be added and com
 
 ### Update the Submodules from their own repos
 
-If changes happend only on the repo of the module directly, the workflow is changing. The tree of the parent repo will not show any modified data, but if we change to the Submodule the status of the repo will respond, that the HEAD is detached from a specific commit.
-In this case the data needs to be fetched first:
+If changes happend only on the repo of the module directly, the workflow is changing. The tree of the parent repo will not show any modified data and also after changing to the submodule ```$ git status``` is not showing any relevant informations. But changes should be available. In this case the data needs to be fetched first:
 
 ```bash
 $ git fetch
 ```
+```$ git status``` will now show that oringin/master is ahead of the local master. The last step is to merge the origin/master into the local:
 
+```bash
+$ git merge origin/master
+```
+
+Changing back to the parent repo needs to update the repo as usual:
+
+```bash
+$ cd ..
+$ git status
+$ git add name-of-the-submodule
+$ git commit -m "Update SubmoduleXYZ"
+```
+
+### Update the Submodule from parent repo
+
+Switching between the Modules could be a very unintuitive workflow, if updating the parent repo is the goal.  A much faster way to do it, is the following command:
+
+```bash
+$ git submodule update --remote name-of-the-submodule
+```
+
+This will leave the parent repo in the knwon state where the changes needs to be added/commited and pushed
+
+### Change to a specific commit
+
+When it is wanted to select a specific commit from the submodule for the parent repo, first the commit needs to be checked out:
+
+```bash
+$ git checkout 123abc
+```
+This will move the HEAD to the commit '123abc'. It also informs that changes from this state will not affect any branches. After switching back to parent repo updating the submodules will lead to parent repo with the submodule at commit '123abc'.
+
+As this is working, it is probably fast but leads to bad behaviour inside the repo, because we detached the HEAD from the branch. Instead of checking out a specific command it is better to create a new branch at this commit and use the branch for the update. So the better command:
+
+```bash
+$ git checkout -b branchname 123abc
+```
 
 ## Git Extensions
