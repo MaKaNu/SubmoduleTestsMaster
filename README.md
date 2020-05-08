@@ -127,5 +127,12 @@ With switching back to the parent repo the modified modules can be added and com
 
 ### Update the Submodules from their own repos
 
+If changes happend only on the repo of the module directly, the workflow is changing. The tree of the parent repo will not show any modified data, but if we change to the Submodule the status of the repo will respond, that the HEAD is detached from a specific commit.
+In this case the data needs to be fetched first:
+
+```bash
+$ git fetch
+```
+
 
 ## Git Extensions
