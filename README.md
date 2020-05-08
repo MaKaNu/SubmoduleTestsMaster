@@ -42,11 +42,13 @@ When the changes are commited in the submodule and the view is reseted to the pa
 
 ### Update the Submodules from their own repos
 
-This workflow appears if, as example, the remote repo is controlled by another person. If the remote is changed the parent repo is still in sync with the submodule. Now if the module is opened the difference between local and remote repo will be visible. In this case the commit linked with the parent repo is tagged as HEAD. By double clicking the local master branch, the tag will be deleted an the local branch activated. Now it is possible to pull the changes from the remote master branch. By continuing as described above the changes will be applied to the parent repo.
+This workflow appears if, as example, the remote repo is controlled by another person. If the remote is changed the parent repo is still in sync with the submodule. Now if the module is opened the difference between local and remote repo will be visible. In this case the cahnges needs to be pulled from the origin/master. As a last step the submodule needs to be closed and the changes commited in the parent repo.
 
 ### Change to a specific commit
 
 With a opened submodule the wanted commit will be checked out by right clicking the specific commit and choose the option "Check out this commit". If the Commit is checked out correctly a tag "HEAD" for this commit will be created. After closing the submodule the parent repo is no longer in sync with the submodule and the changes for the Submodule needs to be added and commited, as descriped above.
+
+As this is working, it is probably fast but leads to bad behaviour inside the repo, because we detached the HEAD from the branch. Instead of checking out a specific command it is better to create a new branch at this commit and use the branch for the update.
 
 ## Commandline
 
