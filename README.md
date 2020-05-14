@@ -50,7 +50,7 @@ With a opened submodule the wanted commit will be checked out by right clicking 
 
 ## Commandline
 
-This section explains the workflow of working with submodule on the commandline. 
+This section explains the workflow of working with submodules on the commandline. 
 
 ### Add the Submodules
 
@@ -173,3 +173,17 @@ $ git checkout -b branchname 123abc
 ```
 
 ## Git Extensions
+
+This section explains the workflow of working with submodules with Git Extensions.
+
+### Add the Submodules
+
+If a submodule should be added the Submodule management should be opend:
+
+Path: Repository -> Manage Submodules...
+
+With the Button "Add submodule" a dialogue for ntegratting the module repo into the parent repo will be started. After filling the dialogue as shown below, a click on the button "Add" will clone the module repo.
+
+![Add Submodules](images/GE_add_submodule.png "Shows how to add a Submodule to the Repo")
+
+Afterwards the mdoule repo should appear in the Submodules list and Up-to-date. 
