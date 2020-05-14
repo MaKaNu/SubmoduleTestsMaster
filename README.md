@@ -180,10 +180,21 @@ This section explains the workflow of working with submodules with Git Extension
 
 If a submodule should be added the Submodule management should be opend:
 
-Path: Repository -> Manage Submodules...
+Path: "Repository -> Manage Submodules..."
 
 With the Button "Add submodule" a dialogue for ntegratting the module repo into the parent repo will be started. After filling the dialogue as shown below, a click on the button "Add" will clone the module repo.
 
 ![Add Submodules](images/GE_add_submodule.png "Shows how to add a Submodule to the Repo")
 
-Afterwards the mdoule repo should appear in the Submodules list and Up-to-date. 
+Afterwards the mdoule repo should appear in the Submodules list and Up-to-date.
+
+### Cloning a repo with submodules 
+When cloning a repo with submodules it is the same procedure as normal. The Checkox "Initialize all submodules needs to be checked, if its wanted to also clone the contents of the submodule.
+
+### Update the Submodules from the parent repo
+
+If a file inside a submodule is changed the working directory shows ![dirty Submodules](images/GE_update.png "1 dirty submodule") "One dirty submodule". In this case the submodule needs to be opened via doubleclick and the changes commited. If the Submodules tree shows "no branch" for the submodule the programm is asking if a checkout should be performed on an existing branch or if a new branch should be created. The commit index is now showing ![changed Submodules](images/GE_changed.png "1 dirty submodule") "One changed Submodule". This chages needs to be commtied as usual.
+
+### Update the Submodules from their own repos
+
+If the submodules repo is changed, the parent repo isn't showing anything. The Submodules needs to be synchronized first 
