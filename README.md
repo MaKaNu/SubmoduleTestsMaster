@@ -197,4 +197,14 @@ If a file inside a submodule is changed the working directory shows ![dirty Subm
 
 ### Update the Submodules from their own repos
 
-If the submodules repo is changed, the parent repo isn't showing anything. The Submodules needs to be synchronized first 
+If the submodules repo is changed, the parent repo isn't showing anything. The Submodules needs to be fetched  first. With a doubleclick on the submodule it will get active. After a fetch and merge on the submodule the updates needs to be commited into the parent repo. Returning to the parent repo works with a doubleclick on the parent repo in the submodule tree.
+
+![Submodules Tree](images/GE_submoduletree.png "Submodule Tree") 
+
+As a last step the changed module is showing changes that needs to be commited.
+
+### Change to a specific commit
+
+Inside the opened submodule a checkout can be performed by rightclicking the specific commit and choosing the optuion "Checkout this commit...". The Submodule will be no signed as "no branch". Inside the parent repo the changes of the submodule needs to be commited.
+
+As this is working, it is probably fast but leads to bad behaviour inside the repo, because we detached the HEAD from the branch. Instead of checking out a specific command it is better to create a new branch at this commit and use the branch for the update. The right-click-option is in this case "Create new branch here..." with set option "Checkout after create"
